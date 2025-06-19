@@ -60,7 +60,21 @@ To enable Android build targets:
 
 ### Customizing the build process for Go extensions
 
-If you need to customize the build process for your Go extension, you can provide a custom build script. See [Extensions written in other compiled languages](#extensions-written-in-other-compiled-languages) below for instructions.
+If you only need to customize the `go build` command, the `go_build_options` input parameter can include additional flags and arguments for all platforms:
+
+```yaml
+- uses: cli/gh-extension-precompile@v2
+  with:
+    go_build_options: './cmd/my-extension'
+```
+
+```yaml
+- uses: cli/gh-extension-precompile@v2
+  with:
+    go_build_options: '-tags production'
+```
+
+For more complex customizations, see [Extensions written in other compiled languages](#extensions-written-in-other-compiled-languages) to provide a custom build script.
 
 ## Extensions written in other compiled languages
 

@@ -72,7 +72,7 @@ else
         cgo_enabled="1"
       fi
     fi
-    GOOS="$goos" GOARCH="$goarch" CGO_ENABLED="$cgo_enabled" CC="$cc" go build -trimpath -ldflags="-s -w" -o "dist/${p}${ext}"
+    GOOS="$goos" GOARCH="$goarch" CGO_ENABLED="$cgo_enabled" CC="$cc" go build -trimpath -ldflags="-s -w" -o "dist/${p}${ext}" ${GO_BUILD_OPTIONS}
   done
 fi
 

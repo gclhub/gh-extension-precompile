@@ -27,6 +27,8 @@ inputs:
     description: "Path to the Android NDK for android-amd64 and android-arm64 builds"
   android_sdk_version:
     description: "Android SDK build-tools version"
+  go_build_options:
+    description: "Additional options to pass to go build command (e.g., './cmd/my-extension' to specify source directory or '-tags production' for build tags)"
 branding:
   color: purple
   icon: box
@@ -108,6 +110,7 @@ runs:
         ANDROID_NDK_HOME: ${{ steps.determine_android_ndk_home.outputs.ANDROID_NDK_HOME }}
         ANDROID_SDK_VERSION: ${{ inputs.android_sdk_version }}
         RELEASE_ANDROID: ${{ inputs.release_android }}
+        GO_BUILD_OPTIONS: ${{ inputs.go_build_options }}
       shell: bash
 
     - if: ${{ inputs.generate_attestations == 'true' }}
